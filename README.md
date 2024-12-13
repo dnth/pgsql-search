@@ -15,7 +15,19 @@ Input a text or image, and get a list of similar items from a PostgreSQL databas
 
 
 ## Installation
+This project uses [Pixi](https://prefix.dev/) to manage dependencies and environments. 
+First [install Pixi](https://pixi.sh/latest/). 
 
+Install the project:
+
+```bash
+pixi install
+```
+
+
+> [!NOTE]
+> Why pixi and not uv? We are using Postgres in this project and it's not installable via uv or pip. But Postgres is installable via conda.
+> Instead of using conda, we use Pixi to manage the environment and conda+pip dependencies. Plus, pixi uses uv under the hood to pull Python packages.
 
 ## Usage
 
