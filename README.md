@@ -3,7 +3,7 @@
 Simplify PostgreSQL search using Python.
 
 
-Input a text or image, and get a list of similar items from a PostgreSQL database.
+Input a text or image, and get a list of matching items from a PostgreSQL database.
 
 ## Features
 - [ ] PostgreSQL Full Text Search
