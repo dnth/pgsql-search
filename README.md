@@ -12,3 +12,10 @@ Input a text or image, and get a list of similar items from a PostgreSQL databas
 - [ ] Vector search
 - [ ] Text-to-image search
 - [ ] Image-to-text search
+
+
+## Installation
+
+
+## Usage
+
