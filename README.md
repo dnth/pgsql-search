@@ -25,7 +25,7 @@ pixi install
 ```
 
 
-> [!NOTE]
+> [!TIP]
 > Why pixi and not uv? \
 > \
 > We are using PostgreSQL database in this project and it's not installable directly via `uv` or `pip`. But PostgreSQL is installable via conda.
