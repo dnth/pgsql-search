@@ -70,3 +70,88 @@
 	            )
 	            
 2024-12-13 11:52:14.217 +08 [49745] LOG:  checkpoint complete: wrote 947 buffers (5.8%); 0 WAL file(s) added, 0 removed, 0 recycled; write=94.811 s, sync=0.012 s, total=94.826 s; sync files=317, longest=0.001 s, average=0.001 s; distance=4329 kB, estimate=4329 kB; lsn=0/18C9428, redo lsn=0/18C93F0
+2024-12-13 12:00:39.407 +08 [49745] LOG:  checkpoint starting: time
+2024-12-13 12:01:42.278 +08 [49745] LOG:  checkpoint complete: wrote 626 buffers (3.8%); 1 WAL file(s) added, 0 removed, 0 recycled; write=62.845 s, sync=0.005 s, total=62.871 s; sync files=99, longest=0.001 s, average=0.001 s; distance=6929 kB, estimate=6929 kB; lsn=0/1F8DC20, redo lsn=0/1F8DBE8
+2024-12-13 12:10:39.391 +08 [49745] LOG:  checkpoint starting: time
+2024-12-13 12:11:26.076 +08 [49745] LOG:  checkpoint complete: wrote 465 buffers (2.8%); 0 WAL file(s) added, 0 removed, 1 recycled; write=46.676 s, sync=0.003 s, total=46.685 s; sync files=40, longest=0.001 s, average=0.001 s; distance=3102 kB, estimate=6547 kB; lsn=0/2295490, redo lsn=0/2295458
+2024-12-13 12:13:15.510 +08 [49743] LOG:  received fast shutdown request
+2024-12-13 12:13:15.510 +08 [49743] LOG:  aborting any active transactions
+2024-12-13 12:13:15.511 +08 [49743] LOG:  background worker "logical replication launcher" (PID 49752) exited with exit code 1
+2024-12-13 12:13:15.511 +08 [49745] LOG:  shutting down
+2024-12-13 12:13:15.512 +08 [49745] LOG:  checkpoint starting: shutdown immediate
+2024-12-13 12:13:15.515 +08 [49745] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.005 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=5892 kB; lsn=0/2295540, redo lsn=0/2295540
+2024-12-13 12:13:15.520 +08 [49743] LOG:  database system is shut down
+2024-12-13 12:13:35.252 +08 [59446] LOG:  starting PostgreSQL 16.6 on x86_64-conda-linux-gnu, compiled by x86_64-conda-linux-gnu-cc (conda-forge gcc 13.3.0-1) 13.3.0, 64-bit
+2024-12-13 12:13:35.252 +08 [59446] LOG:  listening on IPv6 address "::1", port 5432
+2024-12-13 12:13:35.252 +08 [59446] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-12-13 12:13:35.253 +08 [59446] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-12-13 12:13:35.256 +08 [59451] LOG:  database system was shut down at 2024-12-13 12:13:29 +08
+2024-12-13 12:13:35.260 +08 [59446] LOG:  database system is ready to accept connections
+2024-12-13 12:15:56.894 +08 [59840] FATAL:  database "retrieval_db" does not exist
+2024-12-13 12:17:49.511 +08 [60011] FATAL:  database "retrieval_db" does not exist
+2024-12-13 12:18:35.312 +08 [59449] LOG:  checkpoint starting: time
+2024-12-13 12:20:55.048 +08 [59449] LOG:  checkpoint complete: wrote 1393 buffers (8.5%); 1 WAL file(s) added, 0 removed, 0 recycled; write=139.699 s, sync=0.011 s, total=139.737 s; sync files=324, longest=0.001 s, average=0.001 s; distance=7574 kB, estimate=7574 kB; lsn=0/1C0D208, redo lsn=0/1BF46F8
+2024-12-13 14:08:36.592 +08 [59449] LOG:  checkpoint starting: time
+2024-12-13 14:09:23.476 +08 [59449] LOG:  checkpoint complete: wrote 468 buffers (2.9%); 0 WAL file(s) added, 0 removed, 0 recycled; write=46.876 s, sync=0.004 s, total=46.885 s; sync files=41, longest=0.001 s, average=0.001 s; distance=3177 kB, estimate=7134 kB; lsn=0/1F0EC40, redo lsn=0/1F0EC08
+2024-12-13 14:13:34.718 +08 [59446] LOG:  received fast shutdown request
+2024-12-13 14:13:34.719 +08 [59446] LOG:  aborting any active transactions
+2024-12-13 14:13:34.720 +08 [59446] LOG:  background worker "logical replication launcher" (PID 59455) exited with exit code 1
+2024-12-13 14:13:34.720 +08 [59449] LOG:  shutting down
+2024-12-13 14:13:34.720 +08 [59449] LOG:  checkpoint starting: shutdown immediate
+2024-12-13 14:13:34.723 +08 [59449] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.003 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=6421 kB; lsn=0/1F0ECF0, redo lsn=0/1F0ECF0
+2024-12-13 14:13:34.726 +08 [59446] LOG:  database system is shut down
+2024-12-13 14:21:16.560 +08 [69473] LOG:  starting PostgreSQL 16.6 on x86_64-conda-linux-gnu, compiled by x86_64-conda-linux-gnu-cc (conda-forge gcc 13.3.0-1) 13.3.0, 64-bit
+2024-12-13 14:21:16.560 +08 [69473] LOG:  listening on IPv6 address "::1", port 5432
+2024-12-13 14:21:16.560 +08 [69473] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-12-13 14:21:16.562 +08 [69473] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-12-13 14:21:16.564 +08 [69476] LOG:  database system was shut down at 2024-12-13 14:21:16 +08
+2024-12-13 14:21:16.567 +08 [69473] LOG:  database system is ready to accept connections
+2024-12-13 14:21:22.437 +08 [69554] LOG:  starting PostgreSQL 16.6 on x86_64-conda-linux-gnu, compiled by x86_64-conda-linux-gnu-cc (conda-forge gcc 13.3.0-1) 13.3.0, 64-bit
+2024-12-13 14:21:22.438 +08 [69554] LOG:  could not bind IPv6 address "::1": Address already in use
+2024-12-13 14:21:22.438 +08 [69554] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2024-12-13 14:21:22.438 +08 [69554] LOG:  could not bind IPv4 address "127.0.0.1": Address already in use
+2024-12-13 14:21:22.438 +08 [69554] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2024-12-13 14:21:22.438 +08 [69554] WARNING:  could not create listen socket for "localhost"
+2024-12-13 14:21:22.438 +08 [69554] FATAL:  could not create any TCP/IP sockets
+2024-12-13 14:21:22.439 +08 [69554] LOG:  database system is shut down
+2024-12-13 14:21:31.638 +08 [69477] PANIC:  could not create file "pg_wal/xlogtemp.69477": No such file or directory
+2024-12-13 14:21:31.703 +08 [69473] LOG:  WAL writer process (PID 69477) was terminated by signal 6: Aborted
+2024-12-13 14:21:31.703 +08 [69473] LOG:  terminating any other active server processes
+2024-12-13 14:21:31.703 +08 [69473] LOG:  all server processes terminated; reinitializing
+2024-12-13 14:21:31.703 +08 [69473] LOG:  could not open directory "base": No such file or directory
+2024-12-13 14:21:31.703 +08 [69473] LOG:  could not open directory "pg_tblspc": No such file or directory
+2024-12-13 14:21:31.704 +08 [69473] PANIC:  could not open file "global/pg_control": No such file or directory
+2024-12-13 14:21:55.811 +08 [69676] LOG:  starting PostgreSQL 16.6 on x86_64-conda-linux-gnu, compiled by x86_64-conda-linux-gnu-cc (conda-forge gcc 13.3.0-1) 13.3.0, 64-bit
+2024-12-13 14:21:55.811 +08 [69676] LOG:  listening on IPv6 address "::1", port 5432
+2024-12-13 14:21:55.811 +08 [69676] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-12-13 14:21:55.812 +08 [69676] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-12-13 14:21:55.814 +08 [69679] LOG:  database system was shut down at 2024-12-13 14:21:55 +08
+2024-12-13 14:21:55.816 +08 [69676] LOG:  database system is ready to accept connections
+2024-12-13 14:22:47.287 +08 [70092] FATAL:  database "retrieval_db" does not exist
+2024-12-13 14:24:03.763 +08 [70449] LOG:  starting PostgreSQL 16.6 on x86_64-conda-linux-gnu, compiled by x86_64-conda-linux-gnu-cc (conda-forge gcc 13.3.0-1) 13.3.0, 64-bit
+2024-12-13 14:24:03.764 +08 [70449] LOG:  could not bind IPv6 address "::1": Address already in use
+2024-12-13 14:24:03.764 +08 [70449] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2024-12-13 14:24:03.764 +08 [70449] LOG:  could not bind IPv4 address "127.0.0.1": Address already in use
+2024-12-13 14:24:03.764 +08 [70449] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2024-12-13 14:24:03.764 +08 [70449] WARNING:  could not create listen socket for "localhost"
+2024-12-13 14:24:03.764 +08 [70449] FATAL:  could not create any TCP/IP sockets
+2024-12-13 14:24:03.765 +08 [70449] LOG:  database system is shut down
+2024-12-13 14:24:45.570 +08 [70616] FATAL:  could not open file "global/pg_filenode.map": No such file or directory
+2024-12-13 14:24:56.014 +08 [69676] LOG:  could not open file "postmaster.pid": No such file or directory
+2024-12-13 14:24:56.014 +08 [69676] LOG:  performing immediate shutdown because data directory lock file is invalid
+2024-12-13 14:24:56.014 +08 [69676] LOG:  received immediate shutdown request
+2024-12-13 14:24:56.014 +08 [69676] LOG:  could not open file "postmaster.pid": No such file or directory
+2024-12-13 14:24:56.021 +08 [69676] LOG:  database system is shut down
+2024-12-13 14:25:01.548 +08 [70710] LOG:  starting PostgreSQL 16.6 on x86_64-conda-linux-gnu, compiled by x86_64-conda-linux-gnu-cc (conda-forge gcc 13.3.0-1) 13.3.0, 64-bit
+2024-12-13 14:25:01.548 +08 [70710] LOG:  listening on IPv6 address "::1", port 5432
+2024-12-13 14:25:01.548 +08 [70710] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-12-13 14:25:01.549 +08 [70710] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-12-13 14:25:01.553 +08 [70713] LOG:  database system was shut down at 2024-12-13 14:25:01 +08
+2024-12-13 14:25:01.557 +08 [70710] LOG:  database system is ready to accept connections
+2024-12-13 14:26:06.585 +08 [70710] LOG:  received fast shutdown request
+2024-12-13 14:26:06.587 +08 [70710] LOG:  aborting any active transactions
+2024-12-13 14:26:06.588 +08 [70710] LOG:  background worker "logical replication launcher" (PID 70716) exited with exit code 1
+2024-12-13 14:26:06.588 +08 [70711] LOG:  shutting down
+2024-12-13 14:26:06.589 +08 [70711] LOG:  checkpoint starting: shutdown immediate
+2024-12-13 14:26:06.620 +08 [70711] LOG:  checkpoint complete: wrote 1342 buffers (8.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.016 s, sync=0.014 s, total=0.033 s; sync files=314, longest=0.001 s, average=0.001 s; distance=7301 kB, estimate=7301 kB; lsn=0/1BB0180, redo lsn=0/1BB0180
+2024-12-13 14:26:06.624 +08 [70710] LOG:  database system is shut down

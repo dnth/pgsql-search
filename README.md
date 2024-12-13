@@ -45,15 +45,46 @@ This initializes the database and starts the server. You should see a folder nam
 Replace `mylocal_db` with your own database name. 
 
 ## Quickstart
+To run the quickstart script, you need to activate the environment first. The pixi shell command will open a shell in the environment where you can run the script like you would in a normal Python environment.
+
+```bash
+pixi shell
+python scripts/quickstart.py
+```
+
+Alternatively by using the `pixi run` command, you can run the script in the environment automatically:
+
 ```bash
 pixi run python scripts/quickstart.py
 ```
 
+Or even better you can run this as a pixi task:
+
+```bash
+pixi run quickstart
+```
+
+Assuming you've already activated the environment, you can run other scripts directly.
+
 Load datasets into the database:
 
 ```bash
-pixi run python scripts/load_datasets.py
+python scripts/load_datasets.py
 ```
+
+Insert images into the database:
+
+```bash
+python scripts/insert_into_db.py
+```
+
+Query the database:
+
+```bash
+python scripts/query.py
+```
+
+
 
 ## Test
 

@@ -4,7 +4,7 @@ description = "Simplify PostgreSQL search using Python."
 name = "pgsql-search"
 requires-python = ">= 3.10, <3.13"
 version = "0.1.0"
-dependencies = ["psycopg>=3.2.3,<4", "loguru>=0.7.3,<0.8", "pillow>=11.0.0,<12", "tqdm>=4.67.1,<5", "datasets>=3.2.0,<4", "transformers>=4.47.0,<5", "pgvector>=0.3.6,<0.4"]
+dependencies = ["psycopg>=3.2.3,<4", "loguru>=0.7.3,<0.8", "pillow>=11.0.0,<12", "tqdm>=4.67.1,<5", "datasets>=3.2.0,<4", "transformers>=4.47.0,<5", "pgvector>=0.3.6,<0.4", "matplotlib>=3.9.3,<4"]
 
 [build-system]
 build-backend = "hatchling.build"
@@ -18,6 +18,13 @@ platforms = ["linux-64"]
 pgsql_search = { path = ".", editable = true }
 
 [tool.pixi.tasks]
+quickstart = "python scripts/quickstart.py"
+load-dataset = "python scripts/load_datasets.py"
+insert-db = "python scripts/insert_into_db.py"
+query = "python scripts/query.py"
+configure-db = "initdb -D mylocal_db && pg_ctl -D mylocal_db -l logfile start && createuser retrieval_user && createdb retrieval_db -O retrieval_user"
+stop-db = "pg_ctl -D mylocal_db stop"
+remove-db = "rm -rf ./mylocal_db"
 
 [tool.pixi.dependencies]
 postgresql = "<17"
