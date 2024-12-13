@@ -22,3 +22,9 @@ pgsql_search = { path = ".", editable = true }
 [tool.pixi.dependencies]
 postgresql = "<17"
 pgvector = ">=0.7.4,<0.8"
+
+[tool.pixi.environments]
+test = { features = ["test"], solve-group = "default" }
+
+[dependency-groups]
+test = ["pytest"]

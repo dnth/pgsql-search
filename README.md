@@ -43,3 +43,15 @@ pg_ctl -D mylocal_db -l logfile start
 
 This initializes the database and starts the server. You should see a folder named `mylocal_db` in your current directory.
 Replace `mylocal_db` with your own database name. 
+
+## Quickstart
+```bash
+pixi run python nbs/quickstart.py
+```
+
+## Test
+
+```bash
+pixi run -e test pytest
+```
+
