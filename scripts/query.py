@@ -47,7 +47,12 @@ def plot_results(
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Image retrieval based on text query")
-    parser.add_argument("query", type=str, help="Text query for image retrieval")
+    parser.add_argument(
+        "--query",
+        type=str,
+        help="Text query for image retrieval",
+        default="a cat with flowers",
+    )
     parser.add_argument(
         "--num_results", type=int, default=12, help="Number of images to retrieve"
     )

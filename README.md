@@ -39,9 +39,18 @@ Start the local database server:
 ```bash
 initdb -D mylocal_db
 pg_ctl -D mylocal_db -l logfile start
+
+createuser retrieval_user
+createdb retrieval_db -O retrieval_user
 ```
 
-This initializes the database and starts the server. You should see a folder named `mylocal_db` in your current directory.
+Or using `pixi` tasks:
+
+```bash
+pixi run configure-db
+```
+
+This initializes the database and starts the server. You should see a folder named `mylocal_db` in your current directory. Also creates a user and database.
 Replace `mylocal_db` with your own database name. 
 
 ## Quickstart
@@ -67,12 +76,6 @@ pixi run quickstart
 Assuming you've already activated the environment, you can run other scripts directly.
 
 Load datasets into the database:
-
-```bash
-python scripts/load_datasets.py
-```
-
-Insert images into the database:
 
 ```bash
 python scripts/insert_into_db.py

@@ -155,3 +155,69 @@
 2024-12-13 14:26:06.589 +08 [70711] LOG:  checkpoint starting: shutdown immediate
 2024-12-13 14:26:06.620 +08 [70711] LOG:  checkpoint complete: wrote 1342 buffers (8.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.016 s, sync=0.014 s, total=0.033 s; sync files=314, longest=0.001 s, average=0.001 s; distance=7301 kB, estimate=7301 kB; lsn=0/1BB0180, redo lsn=0/1BB0180
 2024-12-13 14:26:06.624 +08 [70710] LOG:  database system is shut down
+2024-12-13 14:34:22.883 +08 [72118] LOG:  starting PostgreSQL 16.6 on x86_64-conda-linux-gnu, compiled by x86_64-conda-linux-gnu-cc (conda-forge gcc 13.3.0-1) 13.3.0, 64-bit
+2024-12-13 14:34:22.884 +08 [72118] LOG:  listening on IPv6 address "::1", port 5432
+2024-12-13 14:34:22.884 +08 [72118] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-12-13 14:34:22.885 +08 [72118] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-12-13 14:34:22.887 +08 [72122] LOG:  database system was shut down at 2024-12-13 14:34:22 +08
+2024-12-13 14:34:22.890 +08 [72118] LOG:  database system is ready to accept connections
+2024-12-13 14:35:38.253 +08 [72118] LOG:  received fast shutdown request
+2024-12-13 14:35:38.256 +08 [72118] LOG:  aborting any active transactions
+2024-12-13 14:35:38.257 +08 [72118] LOG:  background worker "logical replication launcher" (PID 72125) exited with exit code 1
+2024-12-13 14:35:38.257 +08 [72120] LOG:  shutting down
+2024-12-13 14:35:38.258 +08 [72120] LOG:  checkpoint starting: shutdown immediate
+2024-12-13 14:35:38.285 +08 [72120] LOG:  checkpoint complete: wrote 905 buffers (5.5%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.009 s, sync=0.017 s, total=0.028 s; sync files=308, longest=0.002 s, average=0.001 s; distance=4066 kB, estimate=4066 kB; lsn=0/1887618, redo lsn=0/1887618
+2024-12-13 14:35:38.289 +08 [72118] LOG:  database system is shut down
+2024-12-13 14:35:49.613 +08 [72592] LOG:  starting PostgreSQL 16.6 on x86_64-conda-linux-gnu, compiled by x86_64-conda-linux-gnu-cc (conda-forge gcc 13.3.0-1) 13.3.0, 64-bit
+2024-12-13 14:35:49.613 +08 [72592] LOG:  listening on IPv6 address "::1", port 5432
+2024-12-13 14:35:49.613 +08 [72592] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-12-13 14:35:49.614 +08 [72592] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-12-13 14:35:49.617 +08 [72595] LOG:  database system was shut down at 2024-12-13 14:35:49 +08
+2024-12-13 14:35:49.620 +08 [72592] LOG:  database system is ready to accept connections
+2024-12-13 14:40:49.716 +08 [72593] LOG:  checkpoint starting: time
+2024-12-13 14:42:24.575 +08 [72593] LOG:  checkpoint complete: wrote 947 buffers (5.8%); 1 WAL file(s) added, 0 removed, 0 recycled; write=94.708 s, sync=0.016 s, total=94.859 s; sync files=324, longest=0.004 s, average=0.001 s; distance=4329 kB, estimate=4329 kB; lsn=0/1CAFEF8, redo lsn=0/18C93F0
+2024-12-13 14:43:16.580 +08 [72592] LOG:  received fast shutdown request
+2024-12-13 14:43:16.582 +08 [72592] LOG:  aborting any active transactions
+2024-12-13 14:43:16.583 +08 [72592] LOG:  background worker "logical replication launcher" (PID 72598) exited with exit code 1
+2024-12-13 14:43:16.583 +08 [72593] LOG:  shutting down
+2024-12-13 14:43:16.583 +08 [72593] LOG:  checkpoint starting: shutdown immediate
+2024-12-13 14:43:16.591 +08 [72593] LOG:  checkpoint complete: wrote 460 buffers (2.8%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.003 s, total=0.009 s; sync files=27, longest=0.001 s, average=0.001 s; distance=3994 kB, estimate=4296 kB; lsn=0/1CAFFA8, redo lsn=0/1CAFFA8
+2024-12-13 14:43:16.594 +08 [72592] LOG:  database system is shut down
+2024-12-13 14:43:30.579 +08 [74214] LOG:  starting PostgreSQL 16.6 on x86_64-conda-linux-gnu, compiled by x86_64-conda-linux-gnu-cc (conda-forge gcc 13.3.0-1) 13.3.0, 64-bit
+2024-12-13 14:43:30.579 +08 [74214] LOG:  listening on IPv6 address "::1", port 5432
+2024-12-13 14:43:30.579 +08 [74214] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-12-13 14:43:30.580 +08 [74214] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-12-13 14:43:30.582 +08 [74217] LOG:  database system was shut down at 2024-12-13 14:43:30 +08
+2024-12-13 14:43:30.584 +08 [74214] LOG:  database system is ready to accept connections
+2024-12-13 14:48:31.020 +08 [74215] LOG:  checkpoint starting: time
+2024-12-13 14:53:01.081 +08 [74215] LOG:  checkpoint complete: wrote 13275 buffers (81.0%); 0 WAL file(s) added, 0 removed, 5 recycled; write=270.040 s, sync=0.012 s, total=270.062 s; sync files=325, longest=0.001 s, average=0.001 s; distance=92478 kB, estimate=92478 kB; lsn=0/6EDE4D0, redo lsn=0/6EDE498
+2024-12-13 15:42:31.902 +08 [74214] LOG:  received fast shutdown request
+2024-12-13 15:42:31.907 +08 [74214] LOG:  aborting any active transactions
+2024-12-13 15:42:31.908 +08 [74214] LOG:  background worker "logical replication launcher" (PID 74220) exited with exit code 1
+2024-12-13 15:42:31.908 +08 [74215] LOG:  shutting down
+2024-12-13 15:42:31.908 +08 [74215] LOG:  checkpoint starting: shutdown immediate
+2024-12-13 15:42:31.914 +08 [74215] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.006 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=83230 kB; lsn=0/6EDE580, redo lsn=0/6EDE580
+2024-12-13 15:42:31.925 +08 [74214] LOG:  database system is shut down
+2024-12-13 15:42:40.469 +08 [82225] LOG:  starting PostgreSQL 16.6 on x86_64-conda-linux-gnu, compiled by x86_64-conda-linux-gnu-cc (conda-forge gcc 13.3.0-1) 13.3.0, 64-bit
+2024-12-13 15:42:40.469 +08 [82225] LOG:  listening on IPv6 address "::1", port 5432
+2024-12-13 15:42:40.469 +08 [82225] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-12-13 15:42:40.470 +08 [82225] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-12-13 15:42:40.472 +08 [82228] LOG:  database system was shut down at 2024-12-13 15:42:40 +08
+2024-12-13 15:42:40.478 +08 [82225] LOG:  database system is ready to accept connections
+2024-12-13 15:47:40.571 +08 [82226] LOG:  checkpoint starting: time
+2024-12-13 15:49:15.327 +08 [82226] LOG:  checkpoint complete: wrote 947 buffers (5.8%); 0 WAL file(s) added, 0 removed, 0 recycled; write=94.737 s, sync=0.015 s, total=94.756 s; sync files=317, longest=0.003 s, average=0.001 s; distance=4329 kB, estimate=4329 kB; lsn=0/18C9428, redo lsn=0/18C93F0
+2024-12-13 16:01:59.594 +08 [82225] LOG:  received fast shutdown request
+2024-12-13 16:01:59.595 +08 [82225] LOG:  aborting any active transactions
+2024-12-13 16:01:59.597 +08 [82225] LOG:  background worker "logical replication launcher" (PID 82231) exited with exit code 1
+2024-12-13 16:01:59.597 +08 [82226] LOG:  shutting down
+2024-12-13 16:01:59.597 +08 [82226] LOG:  checkpoint starting: shutdown immediate
+2024-12-13 16:01:59.600 +08 [82226] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.004 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=3897 kB; lsn=0/18C94D8, redo lsn=0/18C94D8
+2024-12-13 16:01:59.604 +08 [82225] LOG:  database system is shut down
+2024-12-13 16:02:10.009 +08 [101483] LOG:  starting PostgreSQL 16.6 on x86_64-conda-linux-gnu, compiled by x86_64-conda-linux-gnu-cc (conda-forge gcc 13.3.0-1) 13.3.0, 64-bit
+2024-12-13 16:02:10.009 +08 [101483] LOG:  listening on IPv6 address "::1", port 5432
+2024-12-13 16:02:10.009 +08 [101483] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-12-13 16:02:10.011 +08 [101483] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-12-13 16:02:10.012 +08 [101486] LOG:  database system was shut down at 2024-12-13 16:02:09 +08
+2024-12-13 16:02:10.016 +08 [101483] LOG:  database system is ready to accept connections
+2024-12-13 16:07:10.112 +08 [101484] LOG:  checkpoint starting: time
+2024-12-13 16:08:52.690 +08 [101484] LOG:  checkpoint complete: wrote 1023 buffers (6.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=102.561 s, sync=0.012 s, total=102.579 s; sync files=323, longest=0.001 s, average=0.001 s; distance=5031 kB, estimate=5031 kB; lsn=0/1978A90, redo lsn=0/1978A58

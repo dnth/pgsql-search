@@ -173,7 +173,7 @@ class CLIP:
 
 if __name__ == "__main__":
     ds = HuggingFaceDatasets("UCSC-VLAA/Recap-COCO-30K")
-    ds.save_images("saved_images_coco_30k", num_images=1000)
+    ds.save_images("saved_images_coco_30k", num_images=100)
 
     clip = CLIP(model_id="openai/clip-vit-base-patch32")
     image_embeddings = clip.encode_image(ds.image_paths, batch_size=256)
