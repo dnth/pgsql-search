@@ -1,6 +1,9 @@
 # local databases
 mylocaldb/*
 
+# datasets
+data/*
+
 # pixi environments
 .pixi
 *.egg-info

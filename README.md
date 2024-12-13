@@ -46,7 +46,13 @@ Replace `mylocal_db` with your own database name.
 
 ## Quickstart
 ```bash
-pixi run python nbs/quickstart.py
+pixi run python scripts/quickstart.py
+```
+
+Load datasets into the database:
+
+```bash
+pixi run python scripts/load_datasets.py
 ```
 
 ## Test
