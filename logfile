@@ -11,3 +11,62 @@
 2024-12-13 09:54:18.265 +08 [12796] LOG:  checkpoint starting: shutdown immediate
 2024-12-13 09:54:18.273 +08 [12796] LOG:  checkpoint complete: wrote 43 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.003 s, total=0.010 s; sync files=11, longest=0.001 s, average=0.001 s; distance=241 kB, estimate=241 kB; lsn=0/14CB150, redo lsn=0/14CB150
 2024-12-13 09:54:18.276 +08 [12795] LOG:  database system is shut down
+2024-12-13 11:45:39.288 +08 [49743] LOG:  starting PostgreSQL 16.6 on x86_64-conda-linux-gnu, compiled by x86_64-conda-linux-gnu-cc (conda-forge gcc 13.3.0-1) 13.3.0, 64-bit
+2024-12-13 11:45:39.288 +08 [49743] LOG:  listening on IPv6 address "::1", port 5432
+2024-12-13 11:45:39.288 +08 [49743] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-12-13 11:45:39.289 +08 [49743] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-12-13 11:45:39.291 +08 [49747] LOG:  database system was shut down at 2024-12-13 11:45:36 +08
+2024-12-13 11:45:39.294 +08 [49743] LOG:  database system is ready to accept connections
+2024-12-13 11:46:04.856 +08 [49825] ERROR:  extension "vector" is not available
+2024-12-13 11:46:04.856 +08 [49825] DETAIL:  Could not open extension control file "/home/dnth/Desktop/pgsql-search/.pixi/envs/default/share/extension/vector.control": No such file or directory.
+2024-12-13 11:46:04.856 +08 [49825] HINT:  The extension must first be installed on the system where PostgreSQL is running.
+2024-12-13 11:46:04.856 +08 [49825] STATEMENT:  CREATE EXTENSION IF NOT EXISTS vector
+2024-12-13 11:46:04.860 +08 [49825] ERROR:  current transaction is aborted, commands ignored until end of transaction block
+2024-12-13 11:46:04.860 +08 [49825] STATEMENT:  
+	            DROP TABLE IF EXISTS image_metadata;
+	
+	            CREATE TABLE image_metadata (
+	                image_id INTEGER PRIMARY KEY,
+	                coco_url TEXT,
+	                caption TEXT,
+	                recaption TEXT,
+	                image_filepath TEXT,
+	                img_emb vector(512)
+	            )
+	            
+2024-12-13 11:50:36.543 +08 [50140] ERROR:  extension "vector" is not available
+2024-12-13 11:50:36.543 +08 [50140] DETAIL:  Could not open extension control file "/home/dnth/Desktop/pgsql-search/.pixi/envs/default/share/extension/vector.control": No such file or directory.
+2024-12-13 11:50:36.543 +08 [50140] HINT:  The extension must first be installed on the system where PostgreSQL is running.
+2024-12-13 11:50:36.543 +08 [50140] STATEMENT:  CREATE EXTENSION IF NOT EXISTS vector
+2024-12-13 11:50:36.548 +08 [50140] ERROR:  current transaction is aborted, commands ignored until end of transaction block
+2024-12-13 11:50:36.548 +08 [50140] STATEMENT:  
+	            DROP TABLE IF EXISTS image_metadata;
+	
+	            CREATE TABLE image_metadata (
+	                image_id INTEGER PRIMARY KEY,
+	                coco_url TEXT,
+	                caption TEXT,
+	                recaption TEXT,
+	                image_filepath TEXT,
+	                img_emb vector(512)
+	            )
+	            
+2024-12-13 11:50:39.391 +08 [49745] LOG:  checkpoint starting: time
+2024-12-13 11:51:21.896 +08 [51634] ERROR:  extension "vector" is not available
+2024-12-13 11:51:21.896 +08 [51634] DETAIL:  Could not open extension control file "/home/dnth/Desktop/pgsql-search/.pixi/envs/default/share/extension/vector.control": No such file or directory.
+2024-12-13 11:51:21.896 +08 [51634] HINT:  The extension must first be installed on the system where PostgreSQL is running.
+2024-12-13 11:51:21.896 +08 [51634] STATEMENT:  CREATE EXTENSION IF NOT EXISTS vector
+2024-12-13 11:51:21.900 +08 [51634] ERROR:  current transaction is aborted, commands ignored until end of transaction block
+2024-12-13 11:51:21.900 +08 [51634] STATEMENT:  
+	            DROP TABLE IF EXISTS image_metadata;
+	
+	            CREATE TABLE image_metadata (
+	                image_id INTEGER PRIMARY KEY,
+	                coco_url TEXT,
+	                caption TEXT,
+	                recaption TEXT,
+	                image_filepath TEXT,
+	                img_emb vector(512)
+	            )
+	            
+2024-12-13 11:52:14.217 +08 [49745] LOG:  checkpoint complete: wrote 947 buffers (5.8%); 0 WAL file(s) added, 0 removed, 0 recycled; write=94.811 s, sync=0.012 s, total=94.826 s; sync files=317, longest=0.001 s, average=0.001 s; distance=4329 kB, estimate=4329 kB; lsn=0/18C9428, redo lsn=0/18C93F0

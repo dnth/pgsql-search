@@ -1,5 +1,5 @@
 # local databases
-mylocaldb/*
+mylocal_db/*
 
 # datasets
 data/*
