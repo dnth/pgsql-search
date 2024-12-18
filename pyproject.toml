@@ -4,7 +4,7 @@ description = "Simplify PostgreSQL search using Python."
 name = "pgsql-search"
 requires-python = ">= 3.10, <3.13"
 version = "0.1.0"
-dependencies = ["psycopg>=3.2.3,<4", "loguru>=0.7.3,<0.8", "pillow>=11.0.0,<12", "tqdm>=4.67.1,<5", "datasets>=3.2.0,<4", "transformers>=4.47.0,<5", "pgvector>=0.3.6,<0.4", "matplotlib>=3.9.3,<4", "xinfer>=0.0.7,<0.0.8", "sentence-transformers>=3.3.1,<4"]
+dependencies = ["psycopg>=3.2.3,<4", "loguru>=0.7.3,<0.8", "pillow>=11.0.0,<12", "tqdm>=4.67.1,<5", "datasets>=3.2.0,<4", "transformers>=4.47.0,<5", "pgvector>=0.3.6,<0.4", "matplotlib>=3.9.3,<4", "xinfer>=0.0.7,<0.0.8", "sentence-transformers>=3.3.1,<4", "itables>=2.2.4,<3"]
 
 
 [build-system]

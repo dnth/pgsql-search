@@ -1,6 +1,7 @@
+from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Optional, Union
+from typing import Any, List, Optional, Union
 
 import pandas as pd
 import psycopg
@@ -55,6 +56,31 @@ class Column:
             else:
                 sql += f" DEFAULT {self.default}"
         return sql
+
+
+@dataclass
+class SearchResult:
+    id: int
+    image_filepath: str
+    caption: str
+    query: str
+    search_rank: float
+    # add other relevant fields
+
+    @classmethod
+    def from_db_row(cls, row: tuple, columns: List[str]) -> "SearchResult":
+        return cls(**dict(zip(columns, row)))
+
+    @staticmethod
+    def to_dataframe(results: List["SearchResult"]) -> pd.DataFrame:
+        """Convert a list of SearchResults to a pandas DataFrame"""
+        df = pd.DataFrame([vars(result) for result in results])
+        # Add HTML img tag column if image_filepath exists
+        if "image_filepath" in df.columns:
+            df["image"] = df["image_filepath"].apply(
+                lambda x: f'<img src="{x}" style="max-height: 150px; max-width: 300px; object-fit: contain;"/>'
+            )
+        return df
 
 
 class PostgreSQLDatabase:
@@ -241,13 +267,25 @@ class PostgreSQLDatabase:
             raise
 
     def full_text_search(
-        self, query: str, table_name: str, search_column: str, num_results: int = 10
-    ) -> pd.DataFrame:
+        self,
+        query: str,
+        table_name: str,
+        search_column: str,
+        num_results: int = 10,
+        interactive_output: bool = False,
+    ) -> Union[List[SearchResult], pd.DataFrame]:
         """
         Perform a full-text search on the table.
 
+        Args:
+            query: Search query string
+            table_name: Name of the table to search
+            search_column: Column to perform the search on
+            num_results: Maximum number of results to return
+            return_dataframe: If True, returns results as pandas DataFrame
+
         Returns:
-            pandas.DataFrame: Results with columns from the table plus a 'search_rank' column
+            Either List[SearchResult] or pd.DataFrame depending on return_dataframe parameter
         """
         try:
             self.cur.execute(
@@ -266,11 +304,19 @@ class PostgreSQLDatabase:
             columns = [desc[0] for desc in self.cur.description]
             results = self.cur.fetchall()
 
-            # Convert to DataFrame with proper column names
-            df_results = pd.DataFrame(results, columns=columns)
+            results = [SearchResult.from_db_row(row, columns) for row in results]
 
-            logger.info(f"Found {len(results)} results for query: {query}")
-            return df_results
+            if interactive_output:
+                from itables import init_notebook_mode
+
+                init_notebook_mode(all_interactive=True)
+                df = SearchResult.to_dataframe(results)
+                return df.style.format(
+                    {
+                        "image": lambda x: x  # Render HTML in the image column
+                    }
+                )
+            return results
         except Exception as e:
             logger.error(f"Error performing text search: {e}")
             raise

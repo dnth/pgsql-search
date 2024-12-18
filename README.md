@@ -117,7 +117,7 @@ with PostgreSQLDatabase("my_database") as db:
     )
 ```
 
-`res` is a pandas DataFrame:
+`res` is a pandas `DataFrame`:
 
 | id | image_filepath | caption | query | search_rank |
 |----|----------------|---------|-------|-------------|

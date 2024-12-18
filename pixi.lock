@@ -277,6 +277,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/87/f5/72347bc88306acb359581ac4d52f23c0ef445b57157adedb9aee0cd689d2/httpcore-1.0.7-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/2a/39/e50c7c3a983047577ee07d2a9e53faf5a69493943ec3f6a384bdc792deb2/httpx-0.28.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/44/5a/dc6af87c61f89b23439eb95521e4e99862636cfd538ae12fd36be5483e5f/huggingface_hub-0.26.5-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/00/a3/edfcffc33b9e23f5a5e87178c2ee7a882a6ec6654d0e0c96849cb88519f5/itables-2.2.4-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/91/29/df4b9b42f2be0b623cbd5e2140cafcaa2bef0759a00b7b70104dcfe2fb51/joblib-1.4.2-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/69/4a/4f9dbeb84e8850557c02365a0eee0649abe5eb1d84af92a25731c6c0f922/jsonschema-4.23.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/d1/0f/8910b19ac0670a0f80ce1008e5e751c4a57e14d2c4c13a482aa6079fa9d6/jsonschema_specifications-2024.10.1-py3-none-any.whl
@@ -603,6 +604,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/2a/39/e50c7c3a983047577ee07d2a9e53faf5a69493943ec3f6a384bdc792deb2/httpx-0.28.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/44/5a/dc6af87c61f89b23439eb95521e4e99862636cfd538ae12fd36be5483e5f/huggingface_hub-0.26.5-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/ef/a6/62565a6e1cf69e10f5727360368e451d4b7f58beeac6173dc9db836a5b46/iniconfig-2.0.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/00/a3/edfcffc33b9e23f5a5e87178c2ee7a882a6ec6654d0e0c96849cb88519f5/itables-2.2.4-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/91/29/df4b9b42f2be0b623cbd5e2140cafcaa2bef0759a00b7b70104dcfe2fb51/joblib-1.4.2-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/69/4a/4f9dbeb84e8850557c02365a0eee0649abe5eb1d84af92a25731c6c0f922/jsonschema-4.23.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/d1/0f/8910b19ac0670a0f80ce1008e5e751c4a57e14d2c4c13a482aa6079fa9d6/jsonschema_specifications-2024.10.1-py3-none-any.whl
@@ -2179,6 +2181,59 @@ packages:
   - pkg:pypi/ipywidgets?source=hash-mapping
   size: 113982
   timestamp: 1733493669268
+- pypi: https://files.pythonhosted.org/packages/00/a3/edfcffc33b9e23f5a5e87178c2ee7a882a6ec6654d0e0c96849cb88519f5/itables-2.2.4-py3-none-any.whl
+  name: itables
+  version: 2.2.4
+  sha256: 94f0298a4778ac957eef1d0bf0ff6ebffd3c68c7faef741cc083c31c97316952
+  requires_dist:
+  - ipython
+  - numpy
+  - pandas
+  - anywidget ; extra == 'all'
+  - matplotlib ; extra == 'all'
+  - polars ; extra == 'all'
+  - pyarrow ; extra == 'all'
+  - pytz ; extra == 'all'
+  - traitlets ; extra == 'all'
+  - world-bank-data ; extra == 'all'
+  - anywidget ; extra == 'dev'
+  - ipykernel ; extra == 'dev'
+  - jupyterlab ; extra == 'dev'
+  - jupytext ; extra == 'dev'
+  - matplotlib ; extra == 'dev'
+  - nbconvert ; extra == 'dev'
+  - polars ; extra == 'dev'
+  - pyarrow ; extra == 'dev'
+  - pytest ; extra == 'dev'
+  - pytest-cov ; extra == 'dev'
+  - pytz ; extra == 'dev'
+  - requests ; extra == 'dev'
+  - shiny ; extra == 'dev'
+  - traitlets ; extra == 'dev'
+  - watchfiles ; extra == 'dev'
+  - world-bank-data ; extra == 'dev'
+  - polars ; extra == 'polars'
+  - pyarrow ; extra == 'polars'
+  - pytz ; extra == 'samples'
+  - world-bank-data ; extra == 'samples'
+  - matplotlib ; extra == 'style'
+  - anywidget ; extra == 'test'
+  - ipykernel ; extra == 'test'
+  - jupytext ; extra == 'test'
+  - matplotlib ; extra == 'test'
+  - nbconvert ; extra == 'test'
+  - polars ; extra == 'test'
+  - pyarrow ; extra == 'test'
+  - pytest ; extra == 'test'
+  - pytest-cov ; extra == 'test'
+  - pytz ; extra == 'test'
+  - requests ; extra == 'test'
+  - shiny ; extra == 'test'
+  - traitlets ; extra == 'test'
+  - world-bank-data ; extra == 'test'
+  - anywidget ; extra == 'widget'
+  - traitlets ; extra == 'widget'
+  requires_python: '>=3.7'
 - conda: https://conda.anaconda.org/conda-forge/noarch/jedi-0.19.2-pyhd8ed1ab_1.conda
   sha256: 92c4d217e2dc68983f724aa983cca5464dcb929c566627b26a2511159667dba8
   md5: a4f4c5dc9b80bc50e0d3dc4e6e8f1bd9
@@ -3587,7 +3642,7 @@ packages:
 - pypi: .
   name: pgsql-search
   version: 0.1.0
-  sha256: 8029d7d05413fc580c6d34364190a4912eb2d3b11586234cd2c56d33d4133320
+  sha256: d9eee643110313da050652462fea405ba3f31daa43262a7081f6558a9e911e9c
   requires_dist:
   - psycopg>=3.2.3,<4
   - loguru>=0.7.3,<0.8
@@ -3599,6 +3654,7 @@ packages:
   - matplotlib>=3.9.3,<4
   - xinfer>=0.0.7,<0.0.8
   - sentence-transformers>=3.3.1,<4
+  - itables>=2.2.4,<3
   requires_python: '>=3.10,<3.13'
   editable: true
 - pypi: https://files.pythonhosted.org/packages/fb/81/f457d6d361e04d061bef413749a6e1ab04d98cfeec6d8abcfe40184750f3/pgvector-0.3.6-py3-none-any.whl
