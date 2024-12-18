@@ -93,6 +93,8 @@ PostgreSQLDatabase.create_database("my_database")
 Insert the dataset into the database:
 
 ```python
+df = ds.dataset.to_pandas()
+
 with PostgreSQLDatabase("my_database") as db:
     db.initialize_table("image_metadata")
     db.add_column("image_filepath", ColumnType.TEXT, nullable=False)
