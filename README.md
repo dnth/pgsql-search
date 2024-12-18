@@ -25,11 +25,21 @@ Input a text or image, and get a list of matching items from a PostgreSQL databa
 This project uses [Pixi](https://prefix.dev/) to manage dependencies and environments. 
 First [install Pixi](https://pixi.sh/latest/). 
 
+Clone the repository:
+
+```bash
+git clone https://github.com/dnth/pgsql-search.git
+
+cd pgsql-search
+```
+
 Install the project:
 
 ```bash
 pixi install
 ```
+
+This should install all the dependencies of the project including PostgreSQL, CUDA, PyTorch, and pgvector into a virtual environment.
 
 
 > [!TIP]
@@ -38,7 +48,7 @@ pixi install
 > We are using PostgreSQL database in this project and it's not installable directly via `uv` or `pip`. But PostgreSQL is installable via conda.
 > Instead of using conda, we use Pixi to manage the environment and conda/pip dependencies. Plus, pixi uses `uv` under the hood to pull Python packages.
 
-## Usage
+## Quickstart
 
 Start the local database server using `pixi` tasks:
 
@@ -46,10 +56,10 @@ Start the local database server using `pixi` tasks:
 pixi run configure-db
 ```
 
-This initializes the database and starts the server. You should see a folder named `mylocal_db` in your current directory. Also creates a user and database.
-Replace `mylocal_db` with your own database name. 
+This initializes the database and starts the server. You should see a folder named `mylocal_db` in your current directory. This folder contains the database files.
 
-Load a dataset:
+
+Currentely, we only support Hugging Face datasets. Let's load a dataset with images and captions.
 
 ```python
 from pgsql_search.loader import HuggingFaceDatasets
@@ -59,6 +69,16 @@ ds.save_images("../data/images100")
 ds = ds.select_columns(["image_filepath", "caption"])
 ```
 
+```python
+ds.dataset
+```
+
+```
+Dataset({
+    features: ['image_filepath', 'caption'],
+    num_rows: 30504
+})
+```
 
 Create a database:
 
