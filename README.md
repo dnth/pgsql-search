@@ -69,6 +69,8 @@ ds.save_images("../data/images100")
 ds = ds.select_columns(["image_filepath", "caption"])
 ```
 
+`ds.dataset` is a Hugging Face `Dataset` object. You are free to perform any operations on it.
+
 ```python
 ds.dataset
 ```
