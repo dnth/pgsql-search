@@ -53,41 +53,49 @@ pixi run configure-db
 This initializes the database and starts the server. You should see a folder named `mylocal_db` in your current directory. Also creates a user and database.
 Replace `mylocal_db` with your own database name. 
 
-## Quickstart
-To run the quickstart script, you need to activate the environment first. The pixi shell command will open a shell in the environment where you can run the script like you would in a normal Python environment.
+Load a dataset:
 
-```bash
-pixi shell
-python scripts/quickstart.py
-```
+```python
+from pgsql_search.loader import HuggingFaceDatasets
 
-Alternatively by using the `pixi run` command, you can run the script in the environment automatically:
-
-```bash
-pixi run python scripts/quickstart.py
-```
-
-Or even better you can run this as a pixi task:
-
-```bash
-pixi run quickstart
-```
-
-Assuming you've already activated the environment, you can run other scripts directly.
-
-Load datasets into the database:
-
-```bash
-python scripts/insert_into_db.py
-```
-
-Query the database:
-
-```bash
-python scripts/query.py
+ds = HuggingFaceDatasets("UCSC-VLAA/Recap-COCO-30K")
+ds.save_images("../data/images100")
+ds = ds.select_columns(["image_filepath", "caption"])
 ```
 
 
+Create a database:
+
+```python
+from pgsql_search.database import PostgreSQLDatabase, ColumnType
+
+PostgreSQLDatabase.create_database("my_database")
+```
+
+Insert the dataset into the database:
+
+```python
+with PostgreSQLDatabase("my_database") as db:
+    db.initialize_table("image_metadata")
+    db.add_column("image_filepath", ColumnType.TEXT, nullable=False)
+    db.add_column("caption", ColumnType.TEXT, nullable=True)
+
+    db.insert_dataframe(df)
+```
+
+Run a full text search:
+
+```python
+from pgsql_search.database import PostgreSQLDatabase
+
+with PostgreSQLDatabase("my_database") as db:
+    res = db.full_text_search("elephant", "image_metadata", "caption", num_results=10)
+```
+
+```
+| id | image_filepath | caption | query | search_rank |
+|----|----------------|---------|-------|-------------|
+| 2 | ../data/images100/477389.jpg | The baby elephant is walking with a small obje... | 'eleph' | 0.1 |
 
 ## Test
 
