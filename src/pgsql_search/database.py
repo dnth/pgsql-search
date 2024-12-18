@@ -284,9 +284,7 @@ class PostgreSQLDatabase:
             database_name: Name of the database to create
         """
         try:
-            # Connect to default 'postgres' database to create new database
             with psycopg.connect(dbname="postgres") as conn:
-                # Need to commit immediately to avoid being in a transaction
                 conn.autocommit = True
                 with conn.cursor() as cur:
                     # Check if database exists
