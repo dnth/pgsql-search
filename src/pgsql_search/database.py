@@ -241,51 +241,37 @@ class PostgreSQLDatabase:
             logger.error(f"Error inserting data: {e}")
             raise
 
-    def create_table(self):
-        try:
-            self.cur.execute("""
-            DROP TABLE IF EXISTS image_metadata;
-
-            CREATE TABLE image_metadata (
-                image_id INTEGER PRIMARY KEY,
-                coco_url TEXT,
-                caption TEXT,
-                recaption TEXT,
-                image_filepath TEXT,
-                img_emb vector(512)
-            )
-            """)
-            logger.info("Table created")
-        except Exception as e:
-            logger.error(f"Error creating table: {e}")
-            raise
-
-    def insert_data(self, df: pd.DataFrame, embeddings: np.ndarray):
-        self.create_table()
-
-        df["image_filepath"] = df["image_filepath"].apply(lambda x: x.split("/")[-1])
-        df["img_emb"] = embeddings.T.tolist()
-
-        # Prepare the insert statement
-        insert_sql = """
-        INSERT INTO image_metadata (image_id, coco_url, caption, recaption, image_filepath, img_emb)
-        VALUES (%s, %s, %s, %s, %s, %s)
+    def full_text_search(
+        self, query: str, table_name: str, search_column: str, num_results: int = 10
+    ):
         """
+        Perform a full-text search on the table.
 
-        # Convert dataframe to list of tuples
-        data = []
-        for _, row in df.iterrows():
-            data.append(
-                (
-                    row["image_id"],
-                    row["coco_url"],
-                    row["caption"],
-                    row["recaption"],
-                    row["image_filepath"],
-                    row["img_emb"],
-                )
+        Returns:
+            pandas.DataFrame: Results with columns from the table plus a 'search_rank' column
+        """
+        try:
+            self.cur.execute(
+                f"""
+                    SELECT *,
+                        ts_rank_cd(to_tsvector('english', {search_column}), query) as search_rank
+                    FROM {table_name}, plainto_tsquery('english', %(query)s) query
+                    WHERE to_tsvector('english', {search_column}) @@ query
+                    ORDER BY search_rank DESC
+                    LIMIT {num_results}
+                """,
+                {"query": query},
             )
 
-        self.cur.executemany(insert_sql, data)
-        self.conn.commit()
-        logger.info("Data inserted successfully!")
+            # Get column names from cursor description
+            columns = [desc[0] for desc in self.cur.description]
+            results = self.cur.fetchall()
+
+            # Convert to DataFrame with proper column names
+            df_results = pd.DataFrame(results, columns=columns)
+
+            logger.info(f"Found {len(results)} results for query: {query}")
+            return df_results
+        except Exception as e:
+            logger.error(f"Error performing text search: {e}")
+            raise
