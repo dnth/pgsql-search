@@ -96,6 +96,8 @@ with PostgreSQLDatabase("my_database") as db:
 | id | image_filepath | caption | query | search_rank |
 |----|----------------|---------|-------|-------------|
 | 2 | ../data/images100/477389.jpg | The baby elephant is walking with a small obje... | 'eleph' | 0.1 |
+```
+
 
 ## Test
 
