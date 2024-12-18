@@ -63,7 +63,8 @@ class SearchResult:
     id: int
     image_filepath: str
     caption: str
-    query: str
+    user_query: str
+    parsed_query: str
     search_rank: float
     # add other relevant fields
 
@@ -291,9 +292,10 @@ class PostgreSQLDatabase:
             self.cur.execute(
                 f"""
                     SELECT *,
-                        ts_rank_cd(to_tsvector('english', {search_column}), query) as search_rank
-                    FROM {table_name}, plainto_tsquery('english', %(query)s) query
-                    WHERE to_tsvector('english', {search_column}) @@ query
+                        %(query)s as user_query,
+                        ts_rank_cd(to_tsvector('english', {search_column}), parsed_query) as search_rank
+                    FROM {table_name}, plainto_tsquery('english', %(query)s) parsed_query
+                    WHERE to_tsvector('english', {search_column}) @@ parsed_query
                     ORDER BY search_rank DESC
                     LIMIT {num_results}
                 """,
