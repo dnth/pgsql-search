@@ -73,13 +73,16 @@ class SearchResult:
         return cls(**dict(zip(columns, row)))
 
     @staticmethod
-    def to_dataframe(results: List["SearchResult"]) -> pd.DataFrame:
+    def to_itables(results: List["SearchResult"]) -> pd.DataFrame:
         """Convert a list of SearchResults to a pandas DataFrame"""
         df = pd.DataFrame([vars(result) for result in results])
-        # Add HTML img tag column if image_filepath exists
+        # Add HTML img tag column and make filepath a clickable link
         if "image_filepath" in df.columns:
             df["image"] = df["image_filepath"].apply(
                 lambda x: f'<img src="{x}" style="max-height: 150px; max-width: 300px; object-fit: contain;"/>'
+            )
+            df["image_filepath"] = df["image_filepath"].apply(
+                lambda x: f'<a href="{x}" target="_blank">{x}</a>'
             )
         return df
 
@@ -309,15 +312,10 @@ class PostgreSQLDatabase:
             results = [SearchResult.from_db_row(row, columns) for row in results]
 
             if interactive_output:
-                from itables import init_notebook_mode
+                from itables import show
 
-                init_notebook_mode(all_interactive=True)
-                df = SearchResult.to_dataframe(results)
-                return df.style.format(
-                    {
-                        "image": lambda x: x  # Render HTML in the image column
-                    }
-                )
+                df = SearchResult.to_itables(results)
+                return show(df, classes="display", style="width:100%;margin:auto")
             return results
         except Exception as e:
             logger.error(f"Error performing text search: {e}")
