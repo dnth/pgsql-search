@@ -2,7 +2,6 @@ from datetime import datetime
 from enum import Enum
 from typing import Any, Optional, Union
 
-import numpy as np
 import pandas as pd
 import psycopg
 from loguru import logger
@@ -243,7 +242,7 @@ class PostgreSQLDatabase:
 
     def full_text_search(
         self, query: str, table_name: str, search_column: str, num_results: int = 10
-    ):
+    ) -> pd.DataFrame:
         """
         Perform a full-text search on the table.
 
