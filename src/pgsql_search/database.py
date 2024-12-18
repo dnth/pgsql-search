@@ -315,7 +315,12 @@ class PostgreSQLDatabase:
                 from itables import show
 
                 df = SearchResult.to_itables(results)
-                return show(df, classes="display", style="width:100%;margin:auto")
+                return show(
+                    df,
+                    classes="display",
+                    style="width:100%;margin:auto",
+                    columnDefs=[{"className": "dt-left", "targets": "_all"}],
+                )
             return results
         except Exception as e:
             logger.error(f"Error performing text search: {e}")
