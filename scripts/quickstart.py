@@ -1,4 +1,9 @@
 import pgsql_search as ps
 
-print(f"Loaded pgsql_search version {ps.__version__}")
-ps.search_fts()
+# model = ps.models.CLIP()
+
+# result = ps.search_fts(query="dog")
+# print(result)
+
+
+ps.load_hf_dataset(dataset_id="UCSC-VLAA/Recap-COCO-30K")

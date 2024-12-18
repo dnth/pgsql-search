@@ -59,4 +59,4 @@ class HuggingFaceDatasets:
 
 if __name__ == "__main__":
     ds = HuggingFaceDatasets("UCSC-VLAA/Recap-COCO-30K")
-    ds.save_images("saved_images_coco_30k")
+    ds.save_images("saved_images_coco_30k", num_images=1000)

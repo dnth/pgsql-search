@@ -221,3 +221,36 @@
 2024-12-13 16:02:10.016 +08 [101483] LOG:  database system is ready to accept connections
 2024-12-13 16:07:10.112 +08 [101484] LOG:  checkpoint starting: time
 2024-12-13 16:08:52.690 +08 [101484] LOG:  checkpoint complete: wrote 1023 buffers (6.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=102.561 s, sync=0.012 s, total=102.579 s; sync files=323, longest=0.001 s, average=0.001 s; distance=5031 kB, estimate=5031 kB; lsn=0/1978A90, redo lsn=0/1978A58
+2024-12-13 17:47:12.133 +08 [101484] LOG:  checkpoint starting: time
+2024-12-13 17:47:22.196 +08 [101484] LOG:  checkpoint complete: wrote 101 buffers (0.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=10.054 s, sync=0.003 s, total=10.063 s; sync files=41, longest=0.002 s, average=0.001 s; distance=525 kB, estimate=4580 kB; lsn=0/19FC0A8, redo lsn=0/19FC070
+2024-12-18 15:48:05.677 +08 [33301] LOG:  starting PostgreSQL 16.6 on x86_64-conda-linux-gnu, compiled by x86_64-conda-linux-gnu-cc (conda-forge gcc 13.3.0-1) 13.3.0, 64-bit
+2024-12-18 15:48:05.677 +08 [33301] LOG:  listening on IPv6 address "::1", port 5432
+2024-12-18 15:48:05.677 +08 [33301] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-12-18 15:48:05.678 +08 [33301] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-12-18 15:48:05.680 +08 [33304] LOG:  database system was shut down at 2024-12-18 15:48:05 +08
+2024-12-18 15:48:05.682 +08 [33301] LOG:  database system is ready to accept connections
+2024-12-18 15:48:26.544 +08 [33433] FATAL:  database "my_database" does not exist
+2024-12-18 15:48:42.535 +08 [33453] FATAL:  database "mylocal_db" does not exist
+2024-12-18 15:49:30.939 +08 [33618] FATAL:  database "mylocal_db" does not exist
+2024-12-18 15:50:38.734 +08 [33731] FATAL:  database "dnth" does not exist
+2024-12-18 15:53:05.726 +08 [33302] LOG:  checkpoint starting: time
+2024-12-18 15:54:43.689 +08 [33302] LOG:  checkpoint complete: wrote 979 buffers (6.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=97.948 s, sync=0.011 s, total=97.964 s; sync files=320, longest=0.001 s, average=0.001 s; distance=4722 kB, estimate=4722 kB; lsn=0/192B790, redo lsn=0/192B758
+2024-12-18 16:08:05.989 +08 [33302] LOG:  checkpoint starting: time
+2024-12-18 16:08:10.422 +08 [33302] LOG:  checkpoint complete: wrote 45 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.426 s, sync=0.003 s, total=4.433 s; sync files=38, longest=0.001 s, average=0.001 s; distance=180 kB, estimate=4268 kB; lsn=0/19588A8, redo lsn=0/1958870
+2024-12-18 16:09:36.595 +08 [34022] ERROR:  syntax error at or near "select" at character 30
+2024-12-18 16:09:36.595 +08 [34022] STATEMENT:  select * from image_metadata
+	select * from image_metadata;
+2024-12-18 16:13:05.425 +08 [33302] LOG:  checkpoint starting: time
+2024-12-18 16:13:10.461 +08 [33302] LOG:  checkpoint complete: wrote 51 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=5.028 s, sync=0.004 s, total=5.037 s; sync files=45, longest=0.002 s, average=0.001 s; distance=265 kB, estimate=3868 kB; lsn=0/199AEA8, redo lsn=0/199AE70
+2024-12-18 16:18:05.561 +08 [33302] LOG:  checkpoint starting: time
+2024-12-18 16:18:09.594 +08 [33302] LOG:  checkpoint complete: wrote 41 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.024 s, sync=0.007 s, total=4.034 s; sync files=33, longest=0.005 s, average=0.001 s; distance=211 kB, estimate=3502 kB; lsn=0/19CFE98, redo lsn=0/19CFE60
+2024-12-18 16:24:28.358 +08 [34022] ERROR:  relation "filename" does not exist at character 15
+2024-12-18 16:24:28.358 +08 [34022] STATEMENT:  select * from filename;
+2024-12-18 16:26:44.709 +08 [37455] ERROR:  null value in column "image_filepaths" of relation "image_metadata" violates not-null constraint
+2024-12-18 16:26:44.709 +08 [37455] DETAIL:  Failing row contains (1, null, Several horses with riders crossing a body of water.).
+2024-12-18 16:26:44.709 +08 [37455] STATEMENT:  
+	                INSERT INTO image_metadata (caption)
+	                VALUES ($1)
+	            
+2024-12-18 16:28:05.794 +08 [33302] LOG:  checkpoint starting: time
+2024-12-18 16:28:12.436 +08 [33302] LOG:  checkpoint complete: wrote 67 buffers (0.4%); 0 WAL file(s) added, 0 removed, 0 recycled; write=6.636 s, sync=0.005 s, total=6.643 s; sync files=57, longest=0.002 s, average=0.001 s; distance=409 kB, estimate=3193 kB; lsn=0/1A36558, redo lsn=0/1A36520
