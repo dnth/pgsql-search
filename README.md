@@ -89,13 +89,16 @@ Run a full text search:
 from pgsql_search.database import PostgreSQLDatabase
 
 with PostgreSQLDatabase("my_database") as db:
-    res = db.full_text_search("elephant", "image_metadata", "caption", num_results=10)
+    res = db.full_text_search("people", "image_metadata", "caption", num_results=10)
 ```
 
 
 | id | image_filepath | caption | query | search_rank |
 |----|----------------|---------|-------|-------------|
-| 2 | ../data/images100/477389.jpg | The baby elephant is walking with a small obje... | 'eleph' | 0.1 |
+| 2 | ../data/images100/340089.jpg | A group of people who are sitting on couches i... | 'peopl' | 0.1 |
+| 51 | ../data/images100/559012.jpg | some people walking on an orange carpet and a ... | 'peopl' | 0.1 |
+| 83 | ../data/images100/348379.jpg | A man standing near a group of people with pic... | 'peopl' | 0.1 |
+| 95 | ../data/images100/262274.jpg | Group of people walking in front of a white su... | 'peopl' | 0.1 |
 
 
 

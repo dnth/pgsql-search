@@ -22,7 +22,7 @@ pgsql_search = { path = ".", editable = true }
 quickstart = "python scripts/quickstart.py"
 insert-db = "python scripts/insert_into_db.py"
 query = "python scripts/query.py"
-configure-db = "initdb -D mylocal_db && pg_ctl -D mylocal_db -l logfile start && createuser retrieval_user && createdb retrieval_db -O retrieval_user"
+configure-db = "initdb -D mylocal_db && pg_ctl -D mylocal_db -l logfile start"
 stop-db = "pg_ctl -D mylocal_db stop"
 remove-db = "rm -rf ./mylocal_db"
 gradio = "python scripts/gradio_app.py"

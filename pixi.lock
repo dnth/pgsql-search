@@ -3587,7 +3587,7 @@ packages:
 - pypi: .
   name: pgsql-search
   version: 0.1.0
-  sha256: 951c5802fb9e8158c7a39fcf6c1d6c43eb698a544db3d25fff6cdae2fcb2caf8
+  sha256: 8029d7d05413fc580c6d34364190a4912eb2d3b11586234cd2c56d33d4133320
   requires_dist:
   - psycopg>=3.2.3,<4
   - loguru>=0.7.3,<0.8
