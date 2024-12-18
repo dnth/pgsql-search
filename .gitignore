@@ -1,5 +1,6 @@
 # local databases
 mylocal_db/*
+logfile
 
 # datasets
 data/*
