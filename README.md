@@ -1,3 +1,5 @@
+[![Pixi Badge](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/prefix-dev/pixi/main/assets/badge/v0.json?style=for-the-badge)](https://pixi.sh)
+
 # pgsql-search
 
 Simplify PostgreSQL search using Python.
