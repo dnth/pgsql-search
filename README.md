@@ -79,7 +79,12 @@ Run a full text search:
 from pgsql_search.database import PostgreSQLDatabase
 
 with PostgreSQLDatabase("my_database") as db:
-    res = db.full_text_search("people", "image_metadata", "caption", num_results=10)
+    res = db.full_text_search(
+        query="people", 
+        table_name="image_metadata", 
+        search_column="caption", 
+        num_results=10
+    )
 ```
 
 
