@@ -34,17 +34,7 @@ pixi install
 
 ## Usage
 
-Start the local database server:
-
-```bash
-initdb -D mylocal_db
-pg_ctl -D mylocal_db -l logfile start
-
-createuser retrieval_user
-createdb retrieval_db -O retrieval_user
-```
-
-Or using `pixi` tasks:
+Start the local database server using `pixi` tasks:
 
 ```bash
 pixi run configure-db
@@ -100,7 +90,17 @@ with PostgreSQLDatabase("my_database") as db:
 | 83 | ../data/images100/348379.jpg | A man standing near a group of people with pic... | 'peopl' | 0.1 |
 | 95 | ../data/images100/262274.jpg | Group of people walking in front of a white su... | 'peopl' | 0.1 |
 
+Stop the database server:
 
+```bash
+pixi run stop-db
+```
+
+Remove the database:
+
+```bash
+pixi run remove-db
+```
 
 ## Test
 
