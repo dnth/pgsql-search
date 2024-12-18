@@ -274,3 +274,30 @@ class PostgreSQLDatabase:
         except Exception as e:
             logger.error(f"Error performing text search: {e}")
             raise
+
+    @staticmethod
+    def create_database(database_name: str) -> None:
+        """
+        Creates a new PostgreSQL database if it doesn't exist.
+
+        Args:
+            database_name: Name of the database to create
+        """
+        try:
+            # Connect to default 'postgres' database to create new database
+            with psycopg.connect(dbname="postgres") as conn:
+                # Need to commit immediately to avoid being in a transaction
+                conn.autocommit = True
+                with conn.cursor() as cur:
+                    # Check if database exists
+                    cur.execute(
+                        "SELECT 1 FROM pg_database WHERE datname = %s", (database_name,)
+                    )
+                    if not cur.fetchone():
+                        cur.execute(f"CREATE DATABASE {database_name}")
+                        logger.info(f"Created database '{database_name}'")
+                    else:
+                        logger.info(f"Database '{database_name}' already exists")
+        except Exception as e:
+            logger.error(f"Error creating database: {e}")
+            raise
