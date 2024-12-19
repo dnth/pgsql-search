@@ -22,7 +22,7 @@ Currrent and planned features:
 
 ## 📦 Installation
 > [!NOTE]
-> If you are running on Runpod, please create a non root user before installing.
+> If you are running on [Runpod](https://runpod.io/), please create a non root user before installing.
 
 This project uses [Pixi](https://prefix.dev/) to manage dependencies and environments. 
 First [install Pixi](https://pixi.sh/latest/). 
