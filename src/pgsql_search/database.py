@@ -227,7 +227,14 @@ class PostgreSQLDatabase:
                 FROM information_schema.columns 
                 WHERE table_name = '{self.table_name}'
             """)
-            table_columns = {row[0]: row[1] for row in self.cur.fetchall()}
+            table_columns = {
+                row[0].decode() if isinstance(row[0], bytes) else row[0]: row[
+                    1
+                ].decode()
+                if isinstance(row[1], bytes)
+                else row[1]
+                for row in self.cur.fetchall()
+            }
 
             # Filter DataFrame to only include columns that exist in the table
             valid_columns = [col for col in df.columns if col in table_columns]
