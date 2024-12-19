@@ -5,10 +5,9 @@
 
 
 <div align="center">
-<img src="https://github.com/dnth/pgsql-search/blob/main/assets/logo.png" alt="pgsql-search" width="200">
+<img src="https://github.com/dnth/pgsql-search/blob/main/assets/logo.png" alt="pgsql-search" width="500">
 </div>
 
-Simplify PostgreSQL search using Python.
 
 
 Input a text or image, and get a list of matching items from a PostgreSQL database.
