@@ -201,7 +201,9 @@ class PostgreSQLDatabase:
                 self.cur.execute(alter_sql)
 
             self.conn.commit()
-            logger.info(f"Added {len(columns)} new columns to {self.table_name}")
+            logger.info(
+                f"Added {len(columns)} new columns [{', '.join([col.name for col in columns])}] to {self.table_name}"
+            )
         except Exception as e:
             logger.error(f"Error adding columns: {e}")
             raise
