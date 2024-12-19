@@ -45,10 +45,10 @@ This should install all the dependencies of the project including PostgreSQL, CU
 
 
 > [!TIP]
-> Why pixi and not uv? \
+> Why [Pixi](https://pixi.sh/) and not [uv](https://docs.astral.sh/uv/)? \
 > \
-> We are using PostgreSQL database in this project and it's not installable directly via `uv` or `pip`. But PostgreSQL is installable via conda.
-> Instead of using conda, we use Pixi to manage the environment and conda/pip dependencies. Plus, pixi uses `uv` under the hood to pull Python packages.
+> We are using PostgreSQL database in this project and it's not installable directly via `uv` or `pip`. But PostgreSQL is installable via `conda`.
+> Instead of using `conda`, we use Pixi to manage the environment and dependencies. Plus, Pixi uses `uv` under the hood to pull Python packages. This gives us the speed of `uv` for Python packages and the flexibility of `conda` for system level dependencies.
 
 ## 🚀 Quickstart
 
