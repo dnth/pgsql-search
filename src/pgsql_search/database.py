@@ -238,8 +238,9 @@ class PostgreSQLDatabase:
 
             # Filter DataFrame to only include columns that exist in the table
             valid_columns = [col for col in df.columns if col in table_columns]
-            logger.info(f"Valid columns: {valid_columns}")
             logger.info(f"Table columns: {table_columns}")
+            logger.info(f"DataFrame columns: {df.columns}")
+            logger.info(f"Valid columns to insert: {valid_columns}")
             if not valid_columns:
                 raise ValueError(
                     "No matching columns found between DataFrame and table"
