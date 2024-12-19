@@ -8,6 +8,7 @@ ds.save_images("../data/images")
 ds = ds.select_columns(["image_filepath", "caption"])
 
 df = ds.dataset.to_pandas()
+print(df.head())
 
 
 PostgreSQLDatabase.create_database("my_database")
