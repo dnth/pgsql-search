@@ -5,14 +5,12 @@
 
 
 <div align="center">
-<img src="https://github.com/dnth/pgsql-search/blob/main/assets/logo.png" alt="pgsql-search" width="500">
+    <img src="https://github.com/dnth/pgsql-search/blob/main/assets/logo.png" alt="pgsql-search" width="500">
 </div>
 
 
-
-Input a text or image, and get a list of matching items from a PostgreSQL database.
-
-## Features
+## 🌟 Key Features
+Currrent and planned features:
 - [X] PostgreSQL Full Text Search
 - [ ] Embedding based text search
 - [ ] Embedding based image search
@@ -22,7 +20,7 @@ Input a text or image, and get a list of matching items from a PostgreSQL databa
 - [ ] Hybrid search
 
 
-## Installation
+## 📦 Installation
 This project uses [Pixi](https://prefix.dev/) to manage dependencies and environments. 
 First [install Pixi](https://pixi.sh/latest/). 
 
@@ -52,7 +50,7 @@ This should install all the dependencies of the project including PostgreSQL, CU
 > We are using PostgreSQL database in this project and it's not installable directly via `uv` or `pip`. But PostgreSQL is installable via conda.
 > Instead of using conda, we use Pixi to manage the environment and conda/pip dependencies. Plus, pixi uses `uv` under the hood to pull Python packages.
 
-## Quickstart
+## 🚀 Quickstart
 
 Start the local database server using `pixi` tasks:
 
