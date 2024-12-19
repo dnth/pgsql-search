@@ -4,7 +4,9 @@
 [![License Badge](https://img.shields.io/badge/License-Apache%202.0-green.svg?style=for-the-badge&logo=apache&logoColor=white)](https://github.com/prefix-dev/pgsql-search/blob/main/LICENSE)
 
 
-# pgsql-search
+<div align="center">
+<img src="https://github.com/dnth/pgsql-search/blob/main/assets/logo.png" alt="pgsql-search" width="200">
+</div>
 
 Simplify PostgreSQL search using Python.
 
