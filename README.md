@@ -21,11 +21,11 @@ Currrent and planned features:
 
 
 ## 📦 Installation
+> [!NOTE]
+> If you are running on Runpod, please create a non root user before installing.
+
 This project uses [Pixi](https://prefix.dev/) to manage dependencies and environments. 
 First [install Pixi](https://pixi.sh/latest/). 
-
-Note
-If you are running this in Runpod, please use the non root user to install the project.
 
 Clone the repository:
 
