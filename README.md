@@ -70,14 +70,14 @@ If everything goes well, you should see the results printed in the terminal.
 
 ## 🛠️ Usage
 
-Currently, we only support Hugging Face datasets. Let's load a dataset with images and captions.
+Currently, we only support Hugging Face datasets. Let's load a [dataset](https://huggingface.co/datasets/UCSC-VLAA/Recap-COCO-30K) with images and captions.
 
 ```python
 from pgsql_search.loader import HuggingFaceDatasets
 
-ds = HuggingFaceDatasets("UCSC-VLAA/Recap-COCO-30K")
-ds.save_images("../data/images100")
-ds = ds.select_columns(["image_filepath", "caption"])
+ds = HuggingFaceDatasets("UCSC-VLAA/Recap-COCO-30K") # Load the dataset
+ds.save_images("../data/images") # Save the images to a local folder
+ds = ds.select_columns(["image_filepath", "caption"]) # Select the columns we want to use
 ```
 
 `ds.dataset` is a Hugging Face `Dataset` object. You are free to perform any operations supported by the `datasets` package.
