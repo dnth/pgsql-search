@@ -52,7 +52,7 @@ This should install all the dependencies of the project including PostgreSQL, CU
 
 ## 🚀 Quickstart
 
-Start the local database server using `pixi` tasks:
+Start the local database server:
 
 ```bash
 pixi run configure-db
