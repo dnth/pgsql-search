@@ -24,9 +24,14 @@ Currrent and planned features:
 ## 📦 Installation
 
 This project uses [Pixi](https://prefix.dev/) to manage dependencies and environments. 
-First [install Pixi](https://pixi.sh/latest/). 
 
-Clone the repository:
+If you're on Linux or macOS, you can install Pixi using the following commands:
+
+```bash
+curl -fsSL https://pixi.sh/install.sh | bash
+```
+
+Then clone the repository:
 
 ```bash
 git clone https://github.com/dnth/pgsql-search.git
