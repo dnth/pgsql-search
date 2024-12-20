@@ -28,6 +28,7 @@ pgsql_search = { path = ".", editable = true }
 
 [tool.pixi.tasks]
 configure-db = "initdb -D mylocal_db && pg_ctl -D mylocal_db -l logfile start"
+inspect-db = "harlequin -a postgres postgres://$USER@localhost:5432/my_database"
 stop-db = "pg_ctl -D mylocal_db stop"
 remove-db = "rm -rf ./mylocal_db"
 quickstart = "python scripts/quickstart.py"
@@ -38,6 +39,8 @@ pgvector = ">=0.7.4,<0.8"
 ipykernel = ">=6.29.5,<7"
 ipywidgets = ">=8.1.5,<9"
 jupyterlab = ">=4.3.4,<5"
+harlequin-postgres = ">=0.4.0,<0.5"
+pyarrow = ">=18.1.0,<19"
 
 [tool.pixi.environments]
 test = { features = ["test"], solve-group = "default" }
