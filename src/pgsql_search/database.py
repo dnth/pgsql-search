@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, List, Optional, Union
+from typing import Any
 
 import pandas as pd
 import psycopg
@@ -24,8 +24,8 @@ class Column:
         self,
         name: str,
         type: ColumnType,
-        default: Optional[Any] = None,
-        vector_dim: Optional[int] = None,
+        default: Any | None = None,
+        vector_dim: int | None = None,
         nullable: bool = True,
     ):
         self.name = name
@@ -70,15 +70,15 @@ class SearchResult:
     # add other relevant fields
 
     @classmethod
-    def from_db_row(cls, row: tuple, columns: List[str]) -> "SearchResult":
+    def from_db_row(cls, row: tuple, columns: list[str]) -> "SearchResult":
         return cls(**dict(zip(columns, row)))
 
     @staticmethod
-    def to_dataframe(results: List["SearchResult"]) -> pd.DataFrame:
+    def to_dataframe(results: list["SearchResult"]) -> pd.DataFrame:
         return pd.DataFrame([vars(result) for result in results])
 
     @staticmethod
-    def to_itables(results: List["SearchResult"]) -> pd.DataFrame:
+    def to_itables(results: list["SearchResult"]) -> pd.DataFrame:
         """Convert a list of SearchResults to a pandas DataFrame"""
         import base64
         import os
@@ -186,8 +186,8 @@ class PostgreSQLDatabase:
         self,
         name: str,
         type: ColumnType,
-        default: Optional[Any] = None,
-        vector_dim: Optional[int] = None,
+        default: Any | None = None,
+        vector_dim: int | None = None,
         nullable: bool = True,
     ):
         """
@@ -200,7 +200,7 @@ class PostgreSQLDatabase:
         """
         self.add_columns(Column(name, type, default, vector_dim, nullable))
 
-    def add_columns(self, *columns: Union[Column, tuple[str, ColumnType]]):
+    def add_columns(self, *columns: Column | tuple[str, ColumnType]):
         """
         Add multiple columns to the table.
 
