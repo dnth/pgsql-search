@@ -45,7 +45,7 @@ This should install all the dependencies of the project including PostgreSQL, CU
 
 
 > [!TIP]
-> Why [`pixi`](https://pixi.sh/) and not [uv](https://docs.astral.sh/uv/)? \
+> Why [`pixi`](https://pixi.sh/) and not [`uv`](https://docs.astral.sh/uv/)? \
 > \
 > We are using PostgreSQL database in this project and it's not installable directly via `uv` or `pip`. But PostgreSQL is installable via `conda`. \
 > \
