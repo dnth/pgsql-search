@@ -60,6 +60,8 @@ pixi run configure-db
 
 This initializes the database and starts the server. You should see a folder named `mylocal_db` in your current directory. This folder contains the database files.
 
+Once the database is set up, let's run the quickstart script:
+
 ```bash
 pixi run quickstart
 ```
