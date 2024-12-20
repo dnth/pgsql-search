@@ -45,7 +45,7 @@ class HuggingFaceDatasets:
 
         def save_image_to_disk(example, save_dir):
             filename = f"{example['image_id']}.jpg"
-            filepath = os.path.join(save_dir, filename)
+            filepath = os.path.join(os.path.abspath(save_dir), filename)
             example["image"].save(filepath)
             return {"image_filepath": filepath}
 

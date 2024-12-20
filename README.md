@@ -2,40 +2,36 @@
 [![Pixi Badge](https://img.shields.io/badge/🔌_Powered_by-Pixi-yellow?style=for-the-badge)](https://pixi.sh)
 [![PostgreSQL Badge](https://img.shields.io/badge/PostgreSQL-≤16-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![License Badge](https://img.shields.io/badge/License-Apache%202.0-green.svg?style=for-the-badge&logo=apache&logoColor=white)](https://github.com/prefix-dev/pgsql-search/blob/main/LICENSE)
-
+[![Tested On](https://img.shields.io/badge/Tested_On-Linux%20|%20macOS-success?style=for-the-badge&logo=iterm2&logoColor=white)](https://github.com/dnth/pgsql-search)
+<!--  -->
 
 <div align="center">
-    <img src="https://github.com/dnth/pgsql-search/blob/main/assets/logo.png" alt="pgsql-search" width="500">
+    <img src="./assets/logo.png" alt="pgsql-search" width="500">
 </div>
 
 
 ## 🌟 Key Features
 Currrent and planned features:
 - [X] PostgreSQL Full Text Search
-- [ ] Embedding based text search
-- [ ] Embedding based image search
-- [ ] Vector search
-- [ ] Text-to-image search
-- [ ] Image-to-text search
-- [ ] Hybrid search
+- [ ] Vector text-to-image search
+- [ ] Vector image-to-image search
+- [ ] Hybrid search with RRF
 
 
 ## 📦 Installation
-> [!NOTE]
-> If you are running on [Runpod](https://runpod.io/), please create a non root user before installing.
-> ```bash
-> adduser postgres
-> su - postgres
-> ```
 
 This project uses [Pixi](https://prefix.dev/) to manage dependencies and environments. 
-First [install Pixi](https://pixi.sh/latest/). 
 
-Clone the repository:
+If you're on Linux or macOS, you can install Pixi using the following commands:
+
+```bash
+curl -fsSL https://pixi.sh/install.sh | bash
+```
+
+Then clone the repository:
 
 ```bash
 git clone https://github.com/dnth/pgsql-search.git
-
 cd pgsql-search
 ```
 
@@ -56,7 +52,7 @@ This should install all the dependencies of the project including PostgreSQL, CU
 
 ## 🚀 Quickstart
 
-Start the local database server using `pixi` tasks:
+Start the local database server:
 
 ```bash
 pixi run configure-db
@@ -64,18 +60,27 @@ pixi run configure-db
 
 This initializes the database and starts the server. You should see a folder named `mylocal_db` in your current directory. This folder contains the database files.
 
+```bash
+pixi run quickstart
+```
 
-Currentely, we only support Hugging Face datasets. Let's load a dataset with images and captions.
+This script will load a dataset with images and captions, create a database, insert the dataset into the database, and run a full text search and print the results.
+
+If everything goes well, you should see the results printed in the terminal.
+
+## 🛠️ Usage
+
+Currently, we only support Hugging Face datasets. Let's load a [dataset](https://huggingface.co/datasets/UCSC-VLAA/Recap-COCO-30K) with images and captions.
 
 ```python
 from pgsql_search.loader import HuggingFaceDatasets
 
-ds = HuggingFaceDatasets("UCSC-VLAA/Recap-COCO-30K")
-ds.save_images("../data/images100")
-ds = ds.select_columns(["image_filepath", "caption"])
+ds = HuggingFaceDatasets("UCSC-VLAA/Recap-COCO-30K") # Load the dataset
+ds.save_images("../data/images") # Save the images to a local folder
+ds = ds.select_columns(["image_filepath", "caption"]) # Select the columns we want to use
 ```
 
-`ds.dataset` is a Hugging Face `Dataset` object. You are free to perform any operations on it.
+`ds.dataset` is a Hugging Face `Dataset` object. You are free to perform any operations supported by the `datasets` package.
 
 ```python
 ds.dataset
@@ -87,8 +92,8 @@ Dataset({
     num_rows: 30504
 })
 ```
+From ds.dataset we see that we have 30504 rows in the dataset with 2 columns: `image_filepath` and `caption`. Now we can create a database and insert the dataset into the database.
 
-Create a database:
 
 ```python
 from pgsql_search.database import PostgreSQLDatabase, ColumnType
@@ -108,37 +113,34 @@ with PostgreSQLDatabase("my_database") as db:
 
     db.insert_dataframe(df)
 ```
-
-Run a full text search:
+Once completed, we can run a full text search on the database.
 
 ```python
 from pgsql_search.database import PostgreSQLDatabase
 
+query = "man in a yellow shirt"
+
 with PostgreSQLDatabase("my_database") as db:
     res = db.full_text_search(
-        query="people", 
+        query=query, 
         table_name="image_metadata", 
         search_column="caption", 
-        num_results=10
+        num_results=10,
+        interactive_output=True
     )
 ```
 
-`res` is a pandas `DataFrame`:
+![results](./assets/results.png)
 
-| id | image_filepath | caption | query | search_rank |
-|----|----------------|---------|-------|-------------|
-| 2 | ../data/images100/340089.jpg | A group of people who are sitting on couches i... | 'peopl' | 0.1 |
-| 51 | ../data/images100/559012.jpg | some people walking on an orange carpet and a ... | 'peopl' | 0.1 |
-| 83 | ../data/images100/348379.jpg | A man standing near a group of people with pic... | 'peopl' | 0.1 |
-| 95 | ../data/images100/262274.jpg | Group of people walking in front of a white su... | 'peopl' | 0.1 |
+The output is an interactive table with the results and query.
 
-Stop the database server:
+If you want to stop the database server, you can do so with the following command:
 
 ```bash
 pixi run stop-db
 ```
 
-Remove the database:
+And to remove the database entirely:
 
 ```bash
 pixi run remove-db

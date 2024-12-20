@@ -75,15 +75,33 @@ class SearchResult:
     @staticmethod
     def to_itables(results: List["SearchResult"]) -> pd.DataFrame:
         """Convert a list of SearchResults to a pandas DataFrame"""
+        import base64
+        import os
+        from pathlib import Path
+
+        def get_image_data_url(filepath: str) -> str:
+            try:
+                with open(filepath, "rb") as f:
+                    data = base64.b64encode(f.read()).decode()
+                    ext = Path(filepath).suffix[1:]  # Remove the dot from extension
+                    return f"data:image/{ext};base64,{data}"
+            except Exception:
+                return ""
+
+        def get_file_link(filepath: str) -> str:
+            # Check if running in JupyterLab
+            if os.environ.get("JPY_PARENT_PID"):
+                return f'<a href="files/{filepath}" target="_blank">{filepath}</a>'
+            # VS Code or other environments
+            return f'<a href="file://{filepath}" target="_blank">{filepath}</a>'
+
         df = pd.DataFrame([vars(result) for result in results])
         # Add HTML img tag column and make filepath a clickable link
         if "image_filepath" in df.columns:
             df["image"] = df["image_filepath"].apply(
-                lambda x: f'<img src="{x}" style="max-height: 150px; max-width: 300px; object-fit: contain;"/>'
+                lambda x: f'<img src="{get_image_data_url(x)}" style="max-height: 150px; max-width: 300px; object-fit: contain;"/>'
             )
-            df["image_filepath"] = df["image_filepath"].apply(
-                lambda x: f'<a href="{x}" target="_blank">{x}</a>'
-            )
+            df["image_filepath"] = df["image_filepath"].apply(get_file_link)
         return df
 
 
