@@ -5,6 +5,7 @@ from typing import Any, List, Optional, Union
 
 import pandas as pd
 import psycopg
+from itables import show
 from loguru import logger
 from pgvector.psycopg import register_vector
 
@@ -71,6 +72,10 @@ class SearchResult:
     @classmethod
     def from_db_row(cls, row: tuple, columns: List[str]) -> "SearchResult":
         return cls(**dict(zip(columns, row)))
+
+    @staticmethod
+    def to_dataframe(results: List["SearchResult"]) -> pd.DataFrame:
+        return pd.DataFrame([vars(result) for result in results])
 
     @staticmethod
     def to_itables(results: List["SearchResult"]) -> pd.DataFrame:
@@ -306,8 +311,7 @@ class PostgreSQLDatabase:
         table_name: str,
         search_column: str,
         num_results: int = 10,
-        interactive_output: bool = False,
-    ) -> Union[List[SearchResult], pd.DataFrame]:
+    ) -> pd.DataFrame:
         """
         Perform a full-text search on the table.
 
@@ -341,17 +345,17 @@ class PostgreSQLDatabase:
 
             results = [SearchResult.from_db_row(row, columns) for row in results]
 
-            if interactive_output:
-                from itables import show
+            df = SearchResult.to_itables(results)
 
-                df = SearchResult.to_itables(results)
-                return show(
-                    df,
-                    classes="display",
-                    style="width:100%;margin:auto",
-                    columnDefs=[{"className": "dt-left", "targets": "_all"}],
-                )
-            return results
+            show(
+                df,
+                classes="display",
+                style="width:100%;margin:auto",
+                columnDefs=[{"className": "dt-left", "targets": "_all"}],
+            )
+
+            return SearchResult.to_dataframe(results)
+
         except Exception as e:
             logger.error(f"Error performing text search: {e}")
             raise
