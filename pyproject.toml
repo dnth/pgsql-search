@@ -37,6 +37,7 @@ postgresql = "<17"
 pgvector = ">=0.7.4,<0.8"
 ipykernel = ">=6.29.5,<7"
 ipywidgets = ">=8.1.5,<9"
+jupyterlab = ">=4.3.4,<5"
 
 [tool.pixi.environments]
 test = { features = ["test"], solve-group = "default" }
