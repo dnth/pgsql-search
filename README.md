@@ -125,11 +125,10 @@ with PostgreSQLDatabase("my_database") as db:
         query=query, 
         table_name="image_metadata", 
         search_column="caption", 
-        num_results=10,
-        interactive_output=True
+        num_results=10
     )
 ```
-The output is an interactive table with the results and query.
+The output is a pandas DataFrame with the results and query.
 
 ![results](./assets/results.png)
 
