@@ -35,7 +35,6 @@ Then clone the repository:
 
 ```bash
 git clone https://github.com/dnth/pgsql-search.git
-
 cd pgsql-search
 ```
 
