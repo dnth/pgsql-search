@@ -132,6 +132,12 @@ with PostgreSQLDatabase("my_database") as db:
 
 ![results](./assets/results.png)
 
+
+
+https://github.com/user-attachments/assets/0024a1c4-344f-494f-83cc-32ece6712b97
+
+
+
 The output is an interactive table with the results and query.
 
 If you want to stop the database server, you can do so with the following command:
