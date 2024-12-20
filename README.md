@@ -148,6 +148,10 @@ pixi run inspect-db
 This will open an interactive terminal to inspect the database.
 
 
+https://github.com/user-attachments/assets/2fbde001-befb-4209-a3dd-be61707f1670
+
+
+
 
 
 If you want to stop the database server, you can do so with the following command:
