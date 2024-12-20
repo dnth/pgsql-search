@@ -27,8 +27,6 @@ with PostgreSQLDatabase("my_database") as db:
         table_name="image_metadata",
         search_column="caption",
         num_results=10,
-        interactive_output=False,
     )
 
-
-print(res)
+print(res.head())
