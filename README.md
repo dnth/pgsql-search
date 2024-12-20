@@ -20,9 +20,9 @@ Currrent and planned features:
 
 ## 📦 Installation
 
-This project uses [Pixi](https://prefix.dev/) to manage dependencies and environments. 
+This project uses [pixi](https://prefix.dev/) to manage dependencies and environments. 
 
-If you're on Linux or macOS, you can install Pixi using the following commands:
+If you're on Linux or macOS, you can install pixi using the following commands:
 
 ```bash
 curl -fsSL https://pixi.sh/install.sh | bash
