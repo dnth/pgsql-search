@@ -22,12 +22,6 @@ Currrent and planned features:
 
 
 ## 📦 Installation
-> [!NOTE]
-> If you are running on [Runpod](https://runpod.io/), please create a non root user before installing.
-> ```bash
-> adduser postgres
-> su - postgres
-> ```
 
 This project uses [Pixi](https://prefix.dev/) to manage dependencies and environments. 
 First [install Pixi](https://pixi.sh/latest/). 
@@ -65,8 +59,17 @@ pixi run configure-db
 
 This initializes the database and starts the server. You should see a folder named `mylocal_db` in your current directory. This folder contains the database files.
 
+```bash
+pixi run quickstart
+```
 
-Currentely, we only support Hugging Face datasets. Let's load a dataset with images and captions.
+This script will load a dataset with images and captions, create a database, insert the dataset into the database, and run a full text search and print the results.
+
+If everything goes well, you should see the results printed in the terminal.
+
+## 🛠️ Usage
+
+Currently, we only support Hugging Face datasets. Let's load a dataset with images and captions.
 
 ```python
 from pgsql_search.loader import HuggingFaceDatasets

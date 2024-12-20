@@ -30,6 +30,7 @@ pgsql_search = { path = ".", editable = true }
 configure-db = "initdb -D mylocal_db && pg_ctl -D mylocal_db -l logfile start"
 stop-db = "pg_ctl -D mylocal_db stop"
 remove-db = "rm -rf ./mylocal_db"
+quickstart = "python scripts/quickstart.py"
 
 [tool.pixi.dependencies]
 postgresql = "<17"
