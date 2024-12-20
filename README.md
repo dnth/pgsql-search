@@ -80,7 +80,7 @@ ds.save_images("../data/images100")
 ds = ds.select_columns(["image_filepath", "caption"])
 ```
 
-`ds.dataset` is a Hugging Face `Dataset` object. You are free to perform any operations on it.
+`ds.dataset` is a Hugging Face `Dataset` object. You are free to perform any operations supported by the `datasets` package.
 
 ```python
 ds.dataset
@@ -92,8 +92,8 @@ Dataset({
     num_rows: 30504
 })
 ```
+From ds.dataset we see that we have 30504 rows in the dataset with 2 columns: `image_filepath` and `caption`. Now we can create a database and insert the dataset into the database.
 
-Create a database:
 
 ```python
 from pgsql_search.database import PostgreSQLDatabase, ColumnType
@@ -113,15 +113,16 @@ with PostgreSQLDatabase("my_database") as db:
 
     db.insert_dataframe(df)
 ```
-
-Run a full text search:
+Once completed, we can run a full text search on the database.
 
 ```python
 from pgsql_search.database import PostgreSQLDatabase
 
+query = "man in a yellow shirt"
+
 with PostgreSQLDatabase("my_database") as db:
     res = db.full_text_search(
-        query="man in a yellow shirt", 
+        query=query, 
         table_name="image_metadata", 
         search_column="caption", 
         num_results=10,
@@ -131,13 +132,14 @@ with PostgreSQLDatabase("my_database") as db:
 
 ![results](./assets/results.png)
 
-Stop the database server:
+
+If you want to stop the database server, you can do so with the following command:
 
 ```bash
 pixi run stop-db
 ```
 
-Remove the database:
+And to remove the database entirely:
 
 ```bash
 pixi run remove-db
