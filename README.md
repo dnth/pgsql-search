@@ -6,7 +6,7 @@
 <!--  -->
 
 <div align="center">
-    <img src="https://github.com/dnth/pgsql-search/blob/main/assets/logo.png" alt="pgsql-search" width="500">
+    <img src="./assets/logo.png" alt="pgsql-search" width="500">
 </div>
 
 
@@ -124,21 +124,15 @@ from pgsql_search.database import PostgreSQLDatabase
 
 with PostgreSQLDatabase("my_database") as db:
     res = db.full_text_search(
-        query="people", 
+        query="man in a yellow shirt", 
         table_name="image_metadata", 
         search_column="caption", 
-        num_results=10
+        num_results=10,
+        interactive_output=True
     )
 ```
 
-`res` is a pandas `DataFrame`:
-
-| id | image_filepath | caption | query | search_rank |
-|----|----------------|---------|-------|-------------|
-| 2 | ../data/images100/340089.jpg | A group of people who are sitting on couches i... | 'peopl' | 0.1 |
-| 51 | ../data/images100/559012.jpg | some people walking on an orange carpet and a ... | 'peopl' | 0.1 |
-| 83 | ../data/images100/348379.jpg | A man standing near a group of people with pic... | 'peopl' | 0.1 |
-| 95 | ../data/images100/262274.jpg | Group of people walking in front of a white su... | 'peopl' | 0.1 |
+![results](./assets/results.png)
 
 Stop the database server:
 
