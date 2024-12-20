@@ -2,7 +2,8 @@
 [![Pixi Badge](https://img.shields.io/badge/🔌_Powered_by-Pixi-yellow?style=for-the-badge)](https://pixi.sh)
 [![PostgreSQL Badge](https://img.shields.io/badge/PostgreSQL-≤16-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![License Badge](https://img.shields.io/badge/License-Apache%202.0-green.svg?style=for-the-badge&logo=apache&logoColor=white)](https://github.com/prefix-dev/pgsql-search/blob/main/LICENSE)
-
+[![Tested On](https://img.shields.io/badge/Tested_On-Linux%20|%20macOS-success?style=for-the-badge&logo=iterm2&logoColor=white)](https://github.com/dnth/pgsql-search)
+<!--  -->
 
 <div align="center">
     <img src="https://github.com/dnth/pgsql-search/blob/main/assets/logo.png" alt="pgsql-search" width="500">
