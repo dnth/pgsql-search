@@ -139,6 +139,18 @@ The output is a pandas DataFrame with the results and query.
 
 https://github.com/user-attachments/assets/0024a1c4-344f-494f-83cc-32ece6712b97
 
+If you'd like to inspect the database, you can do so with the following command:
+
+```bash
+pixi run inspect-db
+```
+
+This will open an interactive terminal to inspect the database.
+
+
+https://github.com/user-attachments/assets/2fbde001-befb-4209-a3dd-be61707f1670
+
+
 
 
 
