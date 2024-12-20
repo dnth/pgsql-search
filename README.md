@@ -13,12 +13,9 @@
 ## 🌟 Key Features
 Currrent and planned features:
 - [X] PostgreSQL Full Text Search
-- [ ] Embedding based text search
-- [ ] Embedding based image search
-- [ ] Vector search
-- [ ] Text-to-image search
-- [ ] Image-to-text search
-- [ ] Hybrid search
+- [ ] Vector text-to-image search
+- [ ] Vector image-to-image search
+- [ ] Hybrid search with RRF
 
 
 ## 📦 Installation
